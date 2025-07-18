@@ -3,7 +3,7 @@ import axios from "axios";
 import { SESSION_KEYS } from "../../../utils/constant";
 import "./styles/_EditInfo.scss";
 export default function EditInfo() {
-  const user = ReactSession.get(SESSION_KEYS.USER_INFO);
+  const user = JSON.parse(localStorage.getItem(SESSION_KEYS.USER_INFO));
   const [name, setName] = useState(user?.name || "");
   const [email, setEmail] = useState(user?.email || "");
   const [msg, setMsg] = useState("");

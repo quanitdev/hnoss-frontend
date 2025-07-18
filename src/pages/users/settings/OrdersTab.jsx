@@ -8,7 +8,7 @@ export default function OrdersTab() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const user = ReactSession.get(SESSION_KEYS.USER_INFO);
+  const user = JSON.parse(localStorage.getItem(SESSION_KEYS.USER_INFO));
 
   useEffect(() => {
     if (!user?.id) {
