@@ -1,0 +1,68 @@
+.profile-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 10px;
+  
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #222;
+    }
+  
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+  
+      label {
+        margin-bottom: 6px;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #444;
+      }
+  
+      input {
+        padding: 10px 14px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+  
+        &:focus {
+          border-color: #ee4d2d;
+          box-shadow: 0 0 0 2px rgba(238, 77, 45, 0.2);
+          outline: none;
+        }
+      }
+    }
+  
+    .save-btn {
+      margin-top: 10px;
+      background-color: #ee4d2d;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+  
+      &:hover {
+        background-color: #d7371c;
+      }
+    }
+  
+    p {
+      margin-top: 16px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #d7371c;
+  
+      &.success {
+        color: #28a745;
+      }
+    }
+  }
+  

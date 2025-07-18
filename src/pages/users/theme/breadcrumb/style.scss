@@ -1,0 +1,47 @@
+@use "sass:map";
+@import "../../../../style/pages/theme";
+.breadcrumb,
+.breadcrumb-bg,
+.breadcrumb-overlay {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.breadcrumb {
+  padding: 130px 0;
+
+  .breadcrumb_text {
+    text-align: center;
+    color: white;
+
+    h2 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .breadcrumb_option ul {
+      list-style: none;
+      padding: 0;
+      display: inline-flex;
+      gap: 5px;
+
+      li {
+        color: white;
+
+        &.link a {
+          color: white;
+          text-decoration: underline;
+
+          &:hover {
+            color: #ffd700;
+          }
+        }
+
+        &.active {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

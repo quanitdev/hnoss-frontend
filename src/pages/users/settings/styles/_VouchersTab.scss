@@ -1,0 +1,51 @@
+.voucher-tab {
+    padding: 20px;
+  
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+  
+    .search-input {
+      width: 100%;
+      max-width: 300px;
+      padding: 10px 12px;
+      font-size: 1rem;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+  
+      &:focus {
+        outline: none;
+        border-color: #ee4d2d;
+      }
+    }
+  
+    .voucher-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+  
+      th, td {
+        border: 1px solid #eee;
+        padding: 12px 14px;
+        text-align: left;
+      }
+  
+      th {
+        background: #fafafa;
+        font-weight: 600;
+      }
+  
+      tr:nth-child(even) {
+        background: #fcfcfc;
+      }
+    }
+  
+    p {
+      margin-top: 12px;
+      color: #666;
+    }
+  }
+  

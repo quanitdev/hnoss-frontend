@@ -1,0 +1,140 @@
+.admin-products-page {
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 1100px;
+  margin: 0 auto;
+
+  h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+  }
+
+  .error {
+    color: #fff;
+    background: #e74c3c;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    display: inline-block;
+  }
+
+  .product-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+    align-items: flex-end;
+
+    input,
+    textarea {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.2s;
+      &:focus {
+        border: 1.5px solid #007bff;
+      }
+    }
+    input,
+    textarea {
+      min-width: 160px;
+    }
+    textarea {
+      min-width: 220px;
+      min-height: 36px;
+      resize: vertical;
+    }
+    button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 18px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      &:hover {
+        background: #0056b3;
+      }
+      &:disabled {
+        background: #b3d1ff;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fafbfc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    th,
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      font-size: 1rem;
+    }
+    th {
+      background: #f5f7fa;
+      color: #222;
+      font-weight: 600;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    img {
+      max-width: 40px;
+      max-height: 40px;
+      border-radius: 4px;
+      border: 1px solid #eee;
+    }
+    button {
+      margin-right: 6px;
+      background: #f1c40f;
+      color: #222;
+      border: none;
+      border-radius: 4px;
+      padding: 5px 12px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      &:hover {
+        background: #f39c12;
+        color: #fff;
+      }
+      &:last-child {
+        background: #e74c3c;
+        color: #fff;
+        margin-right: 0;
+        &:hover {
+          background: #c0392b;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    padding: 8px;
+    .product-form {
+      flex-direction: column;
+      gap: 8px;
+      input,
+      textarea {
+        min-width: 100%;
+      }
+    }
+    .product-table th,
+    .product-table td {
+      font-size: 0.95rem;
+      padding: 7px 6px;
+    }
+  }
+}

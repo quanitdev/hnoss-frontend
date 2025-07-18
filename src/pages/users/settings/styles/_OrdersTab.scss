@@ -1,0 +1,63 @@
+.orders-tab {
+    max-width: 700px;
+    margin: 0 auto;
+  
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+      color: #222;
+    }
+  
+    .error-text {
+      color: crimson;
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+  
+    .empty-text {
+      text-align: center;
+      color: #555;
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+  
+    .order-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  
+      .order-item {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin-bottom: 20px;
+        background-color: #fafafa;
+  
+        p {
+          margin: 6px 0;
+          font-size: 0.98rem;
+        }
+  
+        .order-status {
+          font-weight: 600;
+          &.pending {
+            color: #f0ad4e;
+          }
+          &.processing {
+            color: #17a2b8;
+          }
+          &.shipped {
+            color: #007bff;
+          }
+          &.delivered {
+            color: #28a745;
+          }
+          &.cancelled {
+            color: #dc3545;
+          }
+        }
+      }
+    }
+  }
+  

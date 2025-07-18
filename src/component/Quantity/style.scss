@@ -1,0 +1,38 @@
+@use "sass:map";
+@import "../../style/pages/all";
+
+.quantity-container {
+  color: map.get($theme-colors, "description");
+  display: flex;
+  gap: 20px;
+
+
+  .quantity {
+    display: flex;
+    align-items: center;
+
+  
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .qtybtn, input {
+    width: 48px;
+    height: 41px;
+  }
+  
+  input {
+    border: unset;
+    border-radius: 0;
+
+    &::-webkit-inner-spin-button ,
+    &::-webkit-outer-spin-button{
+      -webkit-animation: none;
+      margin: 0;
+    }
+  }
+}
+}

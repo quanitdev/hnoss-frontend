@@ -1,0 +1,258 @@
+[
+    {
+      "name": "Hà Nội",
+      "districts": [
+        {
+          "name": "Ba Đình",
+          "wards": [
+            "Phúc Xá",
+            "Trúc Bạch",
+            "Vĩnh Phúc",
+            "Cống Vị",
+            "Liễu Giai",
+            "Kim Mã",
+            "Nguyễn Trung Trực",
+            "Quán Thánh",
+            "Thành Công",
+            "Giảng Võ",
+            "Đội Cấn",
+            "Điện Biên",
+            "Phan Đình Phùng",
+            "Quán Thán"
+          ]
+        },
+        {
+          "name": "Hoàn Kiếm",
+          "wards": [
+            "Hàng Bài",
+            "Lý Thái Tổ",
+            "Tràng Tiền",
+            "Chương Dương Độ",
+            "Cửa Đông",
+            "Cửa Nam",
+            "Đồng Xuân",
+            "Hàng Bạc",
+            "Hàng Bồ",
+            "Hàng Bông",
+            "Hàng Buồm",
+            "Hàng Đào",
+            "Hàng Gai",
+            "Hàng Mã",
+            "Hàng Trống",
+            "Phan Chu Trinh",
+            "Phúc Tân",
+            "Trần Hưng Đạo"
+          ]
+        },
+        {
+          "name": "Đống Đa",
+          "wards": [
+            "Cát Linh",
+            "Hàng Bột",
+            "Khâm Thiên",
+            "Khương Thượng",
+            "Kim Liên",
+            "Láng Hạ",
+            "Láng Thượng",
+            "Nam Đồng",
+            "Ngã Tư Sở",
+            "Ô Chợ Dừa",
+            "Phương Liên",
+            "Phương Mai",
+            "Quang Trung",
+            "Quốc Tử Giám",
+            "Thịnh Quang",
+            "Thổ Quan",
+            "Trung Liệt",
+            "Trung Phụng",
+            "Trung Tự",
+            "Văn Chương",
+            "Văn Miếu"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TP. Hồ Chí Minh",
+      "districts": [
+        {
+          "name": "Quận 1",
+          "wards": [
+            "Bến Nghé",
+            "Bến Thành",
+            "Nguyễn Thái Bình",
+            "Cầu Ông Lãnh",
+            "Cô Giang",
+            "Đa Kao",
+            "Phạm Ngũ Lão",
+            "Tân Định"
+          ]
+        },
+        {
+          "name": "Quận 3",
+          "wards": [
+            "Phường 1",
+            "Phường 2",
+            "Phường 3",
+            "Phường 4",
+            "Phường 5",
+            "Phường 9",
+            "Phường 10",
+            "Phường 11",
+            "Phường 12",
+            "Phường 13",
+            "Phường 14"
+          ]
+        },
+        {
+          "name": "Thành phố Thủ Đức",
+          "wards": [
+            "An Khánh",
+            "An Lợi Đông",
+            "An Phú",
+            "Bình Chiểu",
+            "Bình Thọ",
+            "Bình Trưng Đông",
+            "Bình Trưng Tây",
+            "Cát Lái",
+            "Hiệp Bình Chánh",
+            "Hiệp Bình Phước",
+            "Linh Chiểu",
+            "Linh Đông",
+            "Linh Tây",
+            "Linh Trung",
+            "Linh Xuân",
+            "Long Bình",
+            "Long Phước",
+            "Long Thạnh Mỹ",
+            "Long Trường",
+            "Phú Hữu",
+            "Phước Bình",
+            "Phước Long A",
+            "Phước Long B",
+            "Tam Bình",
+            "Tam Phú",
+            "Tăng Nhơn Phú A",
+            "Tăng Nhơn Phú B",
+            "Thạnh Mỹ Lợi",
+            "Thảo Điền",
+            "Thủ Thiêm",
+            "Trường Thạnh",
+            "Trường Thọ"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Đà Nẵng",
+      "districts": [
+        {
+          "name": "Hải Châu",
+          "wards": [
+            "Bình Hiên",
+            "Bình Thuận",
+            "Hải Châu 1",
+            "Hải Châu 2",
+            "Hòa Cường Bắc",
+            "Hòa Cường Nam",
+            "Hòa Thuận Đông",
+            "Hòa Thuận Tây",
+            "Nam Dương",
+            "Phước Ninh",
+            "Thạch Thang",
+            "Thanh Bình",
+            "Thuận Phước"
+          ]
+        },
+        {
+          "name": "Sơn Trà",
+          "wards": [
+            "An Hải Bắc",
+            "An Hải Đông",
+            "An Hải Tây",
+            "Mân Thái",
+            "Nại Hiên Đông",
+            "Phước Mỹ",
+            "Thọ Quang"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cần Thơ",
+      "districts": [
+        {
+          "name": "Ninh Kiều",
+          "wards": [
+            "An Bình",
+            "An Cư",
+            "An Hòa",
+            "An Khánh",
+            "An Nghiệp",
+            "An Phú",
+            "An Hội",
+            "Cái Khế",
+            "Hưng Lợi",
+            "Phú Thứ",
+            "Tân An",
+            "Thới Bình",
+            "Xuân Khánh"
+          ]
+        },
+        {
+          "name": "Cái Răng",
+          "wards": [
+            "Ba Láng",
+            "Hưng Phú",
+            "Hưng Thạnh",
+            "Lê Bình",
+            "Phú Thứ",
+            "Thường Thạnh",
+            "Tân Phú"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Huế",
+      "districts": [
+        {
+          "name": "Thành phố Huế",
+          "wards": [
+            "An Cựu",
+            "An Đông",
+            "An Hòa",
+            "An Tây",
+            "Hương An",
+            "Hương Hồ",
+            "Hương Long",
+            "Hương Phong",
+            "Hương Sơ",
+            "Hương Thọ",
+            "Hương Vinh",
+            "Kim Long",
+            "Phú Bài",
+            "Phú Hậu",
+            "Phú Nhuận",
+            "Phú Thượng",
+            "Phước Vĩnh",
+            "Thành Công",
+            "Tây Lộc",
+            "Thuận An",
+            "Thuận Hòa",
+            "Thuận Lộc",
+            "Thủy Biều",
+            "Thủy Bằng",
+            "Thủy Châu",
+            "Thủy Dương",
+            "Thủy Phương",
+            "Thủy Thanh",
+            "Thủy Vân",
+            "Trường An",
+            "Vĩnh Ninh",
+            "Vy Dạ"
+          ]
+        }
+      ]
+    }
+  ]

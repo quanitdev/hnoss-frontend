@@ -1,0 +1,71 @@
+.payment-policy-container {
+  max-width: 1100px;
+  margin: 0 auto 40px auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+
+  .payment-policy-hero {
+    position: relative;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+    }
+    .hero-content {
+      position: relative;
+      color: #fff;
+      text-align: center;
+      z-index: 1;
+      h1 {
+        font-size: 2.2rem;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      .breadcrumb {
+        font-size: 1rem;
+        opacity: 0.9;
+      }
+    }
+  }
+
+  .payment-policy-content {
+    padding: 32px 32px 24px 32px;
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+    hr {
+      margin-bottom: 24px;
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin: 24px 0 8px 0;
+    }
+    b {
+      display: block;
+      margin: 12px 0 4px 0;
+    }
+    ul {
+      margin: 0 0 16px 24px;
+      li {
+        margin-bottom: 6px;
+        line-height: 1.6;
+      }
+    }
+    p {
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+  }
+}

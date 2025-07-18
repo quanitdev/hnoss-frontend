@@ -1,0 +1,284 @@
+@use "sass:map";
+@import "../../../../style/pages/all";
+
+.slider-fullwidth {
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  z-index: 1;
+  padding-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.slider-inner {
+  width: 100%;
+  max-width: 1680px;
+  aspect-ratio: 1680 / 477;
+  position: relative;
+  padding: 0 16px;
+}
+
+// New animated slider styles
+.slider-animated {
+  width: 1670px;
+  height: 500px;
+  background-size: 100% 100%;
+  border-radius: 7px;
+  box-shadow: 0px 20px 20px 10px rgba(0, 0, 0, 0.088);
+  animation: animate 15s linear infinite;
+  margin: 0 auto;
+  background-image: var(--slide-1, url("#"));
+}
+
+@keyframes animate {
+  0% {
+    background-image: var(--slide-1);
+  }
+  20% {
+    background-image: var(--slide-2);
+  }
+  40% {
+    background-image: var(--slide-3);
+  }
+  60% {
+    background-image: var(--slide-4);
+  }
+  80% {
+    background-image: var(--slide-5);
+  }
+  100% {
+    background-image: var(--slide-1);
+  }
+}
+
+.slider-img {
+  width: 100%;
+  height: 157%;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  display: block;
+  transition: all 0.5s;
+}
+
+.slider-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  z-index: 2;
+}
+
+.slider-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  border: 2px solid #e0e0e0;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &.active {
+    background: #2e8b57;
+    border: 2px solid #2e8b57;
+    box-shadow: 0 0 8px #2e8b57;
+  }
+}
+
+.slider-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: #f8f9fa;
+  border-radius: 16px;
+  color: #6c757d;
+
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e9ecef;
+    border-top: 4px solid #2e8b57;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.header-wrapper {
+  margin-bottom: -45px; // 👈 Khoảng cách giữa menu và slider
+  @media (min-width: 768px) {
+    margin-bottom: -45px; // Tablet trở lên: xa hơn chút nếu muốn
+  }
+}
+
+// Responsive styles for slider
+@media (max-width: 1200px) {
+  .slider-animated {
+    width: 100%;
+    height: 350px;
+    max-width: 100%;
+  }
+  .slider-inner {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+}
+
+@media (max-width: 992px) {
+  .slider-animated {
+    height: 250px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-fullwidth {
+    padding-top: 8px;
+  }
+  .slider-animated {
+    height: 180px;
+    border-radius: 8px;
+  }
+  .slider-img {
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .slider-animated {
+    height: 120px;
+    border-radius: 6px;
+  }
+  .slider-img {
+    border-radius: 6px;
+  }
+  .slider-inner {
+    padding: 0 2px;
+  }
+}
+
+// Style cho link đăng nhập/đăng ký trong menu hamburger
+.auth-link {
+  display: block;
+  color: #222;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #2e8b57;
+    text-decoration: underline;
+  }
+}
+
+.humberger_menu_contact ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+// Style cho user dropdown trong hamburger menu
+.humberger_user_dropdown {
+  position: relative;
+}
+
+.humberger_user_dropdown .user_toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  transition: background 0.2s;
+}
+.humberger_user_dropdown .user_toggle:hover {
+  background: #e0e0e0;
+}
+
+.humberger_user_dropdown .user_menu_dropdown {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  right: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  min-width: 180px;
+  z-index: 100;
+  padding: 8px 0;
+  list-style: none;
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.humberger_user_dropdown .user_menu_dropdown li {
+  padding: 8px 20px;
+  color: #222;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.humberger_user_dropdown .user_menu_dropdown li:hover {
+  background: #f0f8f5;
+  color: #2e8b57;
+}
+.humberger_user_dropdown .user_menu_dropdown li strong {
+  font-weight: 600;
+  color: #2e8b57;
+}
+
+.humberger_user_dropdown .user_menu_dropdown .dropdown-link {
+  display: flex;
+  align-items: center;
+  color: #222;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 0;
+  transition: color 0.2s;
+}
+.humberger_user_dropdown .user_menu_dropdown .dropdown-link:hover {
+  color: #2e8b57;
+  text-decoration: none;
+}
+
+// Đảm bảo icon user và giỏ hàng cùng hàng
+.humberger_menu_cart ul {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

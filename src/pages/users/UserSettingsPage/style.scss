@@ -1,0 +1,123 @@
+.user-settings-layout {
+  display: flex;
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  min-height: 500px;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.user-settings-tabs {
+  width: 260px;
+  border-right: 1px solid #f2f2f2;
+  background: #fafafa;
+  border-radius: 12px 0 0 12px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  .tab-menu {
+    display: flex;
+    flex-direction: column;
+    button {
+      background: none;
+      border: none;
+      font-size: 1.15rem;
+      color: #333;
+      text-align: left;
+      padding: 22px 40px 22px 36px;
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+      outline: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+
+      &.active,
+      &:hover {
+        background: #fff6f2;
+        color: #ee4d2d;
+        border-left: 3px solid #ee4d2d;
+      }
+      .icon {
+        width: 26px;
+        display: flex;
+        justify-content: center;
+        font-size: 1.25em;
+      }
+    }
+  }
+}
+
+.user-settings-content {
+  flex: 1;
+  padding: 48px 56px 40px 56px;
+  min-height: 500px;
+  border-radius: 0 12px 12px 0;
+  background: #fff;
+
+  .profile-edit {
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .desc {
+      color: #888;
+      margin-bottom: 22px;
+    }
+    .profile-form {
+      max-width: 600px;
+      margin-top: 18px;
+      .form-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 22px;
+        label {
+          width: 150px;
+          color: #555;
+          font-size: 1.05rem;
+          font-weight: 500;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+          padding: 9px 12px;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          font-size: 1.05rem;
+          min-width: 260px;
+        }
+        span {
+          font-size: 1.05rem;
+        }
+        .save-btn {
+          background: #ee4d2d;
+          color: #fff;
+          border: none;
+          border-radius: 6px;
+          font-size: 1.08rem;
+          font-weight: 500;
+          padding: 10px 44px;
+          cursor: pointer;
+          transition: background 0.2s;
+          margin-left: 150px;
+          &:hover {
+            background: #d7381a;
+          }
+        }
+      }
+    }
+    p {
+      margin-top: 18px;
+      text-align: left;
+      font-size: 1.02rem;
+    }
+  }
+}

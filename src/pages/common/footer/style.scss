@@ -1,0 +1,226 @@
+.footer,
+.footer-bg-overlay {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.footer {
+  position: relative;
+  color: #fff;
+  padding: 0;
+  overflow: hidden;
+
+  .footer-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 0;
+  }
+
+  .footer-container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 1fr 1.2fr 1.6fr;
+    gap: 32px;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 60px 40px 20px 40px;
+    align-items: start;
+  }
+
+  .footer-col {
+    position: relative;
+    z-index: 1;
+    h4 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 18px;
+      color: #fff;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        margin-bottom: 8px;
+        a {
+          color: #fff;
+          text-decoration: none;
+          transition: color 0.2s;
+          &:hover {
+            color: #f05053;
+          }
+        }
+      }
+    }
+    p,
+    li,
+    a {
+      color: #fff;
+      line-height: 1.7;
+    }
+    &.logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        background: #fff;
+        padding: 24px 32px;
+        border-radius: 8px;
+        width: 180px;
+        height: 180px;
+        object-fit: contain;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+      }
+    }
+    &.social {
+      .social-icons {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        a {
+          display: flex;
+          align-items: center;
+          font-size: 16px;
+          color: #fff;
+          gap: 12px;
+          svg {
+            font-size: 32px;
+            background: #fff;
+            color: #222;
+            border-radius: 50%;
+            padding: 6px;
+            margin-right: 8px;
+            transition: background 0.2s, color 0.2s;
+          }
+          &:hover svg {
+            background: #f05053;
+            color: #fff;
+          }
+        }
+      }
+    }
+    &.company {
+      .gov-badge {
+        margin-top: 13px;
+        width: 137px;
+        height: 53px;
+        border-radius: 6px;
+        padding: 2px 8px;
+      }
+    }
+  }
+
+  .footer-bottom {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+    padding: 18px 0 8px 0;
+    font-size: 15px;
+    background: transparent;
+
+    p {
+      color: #222;
+      text-align: center;
+    }
+  }
+  .footer-img {
+    margin-top: 20px;
+
+    img {
+      width: 400px;
+      height: 50px;
+      object-fit: contain;
+      display: block;
+    }
+  }
+}
+
+// Responsive Footer
+@media (max-width: 1024px) {
+  .footer .footer-container {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 40px 20px 16px 20px;
+  }
+  .footer-col.logo img {
+    width: 120px;
+    height: 120px;
+    padding: 16px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 28px 10px 10px 10px;
+  }
+  .footer-col.logo img {
+    width: 90px;
+    height: 90px;
+    padding: 10px 10px;
+  }
+  .footer-col h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .footer-col ul li {
+    margin-bottom: 5px;
+  }
+  .footer-col.social .social-icons a svg {
+    font-size: 24px;
+    padding: 4px;
+    margin-right: 4px;
+  }
+  .footer-img img {
+    width: 220px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer .footer-container {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px 4px 8px 4px;
+    justify-items: center;
+  }
+  .footer-col {
+    align-items: center;
+    text-align: center;
+  }
+  .footer-col.logo img {
+    width: 70px;
+    height: 70px;
+    padding: 6px 6px;
+  }
+  .footer-col h4 {
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+  .footer-col ul li {
+    margin-bottom: 3px;
+  }
+  .footer-col.social .social-icons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+  .footer-col.social .social-icons a svg {
+    font-size: 18px;
+    padding: 2px;
+    margin-right: 2px;
+  }
+  .footer-img img {
+    width: 140px;
+    height: 20px;
+  }
+  .footer-bottom {
+    font-size: 13px;
+    padding: 10px 0 4px 0;
+  }
+}

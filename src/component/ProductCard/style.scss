@@ -1,0 +1,103 @@
+@use "sass:map";
+@import "../../style/pages/all";
+
+.featured_item {
+    margin-bottom: 50px;
+    
+    &:hover {
+      .featured_item_pic_hover{
+          top: 80% !important;
+      }
+      .featured_item_pic {
+        transform: scale(1.07);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        z-index: 2;
+        position: relative;
+      }
+    }
+
+
+  .featured_item_pic {
+      height: 270px;
+      position: relative;
+      overflow: hidden;
+      background-position:  center center;
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+
+      .featured_item_pic_hover {
+        position: absolute;
+        left: 0;
+        top: 120%;
+        width: 100%;
+        text-align: center;
+        transition: all, 0.5s;
+
+        li {
+          list-style: none;
+          display: inline-block;
+          margin-right: 10px;
+
+      &:hover {
+          svg {
+              background: #7fad39;
+              border-color: #7fad39;
+              color: #ffffff !important;
+              transform: rotate(360deg) !important;
+          }
+          
+      }
+      svg {
+          padding: 10px;
+          height: 20px;
+          width: 20px;
+          border: 1px solid #ebebeb;
+          background: #ffffff;
+          color: #565555;
+          transition: all, 0.3s;
+          border-radius: 50%;
+      }
+    }
+  }
+}
+.featured_item_text {
+  text-align: center;
+
+
+h6 {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 400;
+
+
+a {
+  color: map.get($theme-colors, "normal-text");
+  text-decoration: none;
+}
+  }
+  h5{
+    color: map.get($theme-colors, "normal-text");
+    font-size: 18px;
+  font-weight: 700;
+  margin-top: 10px; 
+ }
+}
+}
+ 
+
+
+.image-wrapper {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  
+  .box-shadow: 0 0 20px 6px rgba(255, 0, 153, 0.5);
+  // ✅ Hiệu ứng hover
+  &:hover {
+    box-shadow: 0 0 18px 5px rgba(0, 195, 255, 0.4); // viền phát sáng xanh
+    background-color: rgba(0, 195, 255, 0.05); // làm nền sáng lên nhẹ
+    transform: scale(1.03); // nhẹ nhàng phóng to ảnh
+  }
+}
+
