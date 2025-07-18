@@ -1,18 +1,15 @@
-import { ReactSession } from "react-client-session";
 import { SESSION_KEYS } from "../utils/constant";
 import { useDispatch } from "react-redux";
 import { setCart } from "../redux/commonSlide";
 
 const useShoppingCart = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const addToCart = (product, quantity) => {
-    const cart = ReactSession.get(SESSION_KEYS.CART);
-    const products = cart ? cart.products : [];
+    const cart = localStorage.getItem(SESSION_KEYS.CART);
+    const products = cart ? JSON.parse(cart).products : [];
 
-    const productIndex = products.findIndex(
-      (c) => c.product.id === product.id
-    );
+    const productIndex = products.findIndex((c) => c.product.id === product.id);
 
     if (productIndex > -1) {
       products[productIndex].quantity += quantity;
@@ -33,21 +30,23 @@ const useShoppingCart = () => {
       products,
     };
 
-    ReactSession.set(SESSION_KEYS.CART, newCart);
+    localStorage.setItem(SESSION_KEYS.CART, JSON.stringify(newCart));
     alert("Đã thêm sản phẩm vào giỏ hàng!");
     dispatch(setCart(newCart));
   };
 
   const removeCart = (id) => {
-    const cart = ReactSession.get(SESSION_KEYS.CART);
+    const cart = localStorage.getItem(SESSION_KEYS.CART);
 
-    if (!cart || !Array.isArray(cart.products)) {
+    if (!cart || !Array.isArray(JSON.parse(cart).products)) {
       alert("Không có sản phẩm trong giỏ hàng.");
       return cart;
     }
 
     if (window.confirm("Bạn có chắc chắn muốn xóa sản phẩm không?")) {
-      const item = cart.products.find(({ product }) => product.id === id);
+      const item = JSON.parse(cart).products.find(
+        ({ product }) => product.id === id
+      );
 
       if (!item) {
         alert("Không tìm thấy sản phẩm trong giỏ hàng.");
@@ -55,8 +54,8 @@ const useShoppingCart = () => {
       }
 
       const totalPrice =
-        cart.totalPrice - item.quantity * item.product.price;
-      const products = cart.products.filter(
+        JSON.parse(cart).totalPrice - item.quantity * item.product.price;
+      const products = JSON.parse(cart).products.filter(
         ({ product }) => product.id !== id
       );
 
@@ -66,7 +65,7 @@ const useShoppingCart = () => {
         products,
       };
 
-      ReactSession.set(SESSION_KEYS.CART, newCart);
+      localStorage.setItem(SESSION_KEYS.CART, JSON.stringify(newCart));
       dispatch(setCart(newCart));
       return newCart;
     }

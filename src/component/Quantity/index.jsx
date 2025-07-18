@@ -1,7 +1,6 @@
 import { memo, useState } from "react";
 import "./style.scss";
 import useShoppingCart from "../../hooks/useShoppingCart";
-import { ReactSession } from "react-client-session";
 import { SESSION_KEYS } from "../../utils/constant";
 
 const Quantity = ({
@@ -47,7 +46,6 @@ const Quantity = ({
               ? { ...product, size: selectedSize }
               : product;
             addToCart(productWithSize, quantity);
-            const curCart = ReactSession.get(SESSION_KEYS.CART);
           }}
         >
           Thêm giỏ hàng

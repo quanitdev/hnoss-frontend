@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { ReactSession } from "react-client-session";
 import { SESSION_KEYS } from "../../../utils/constant";
 import "./styles/_OrdersTab.scss";
 

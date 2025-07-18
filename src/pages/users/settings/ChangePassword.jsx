@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { ReactSession } from "react-client-session";
 import axios from "axios";
 import { SESSION_KEYS } from "../../../utils/constant";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./styles/_ChangePassword.scss";
 
 export default function ChangePassword() {
-  const user = ReactSession.get(SESSION_KEYS.USER_INFO);
+  const user = JSON.parse(localStorage.getItem(SESSION_KEYS.USER_INFO));
 
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -25,7 +24,9 @@ export default function ChangePassword() {
     }
 
     if (!/^[A-Za-z0-9]{8,}$/.test(newPassword)) {
-      return setMsg("Mật khẩu mới chỉ được chứa chữ và số, không có ký tự đặc biệt.");
+      return setMsg(
+        "Mật khẩu mới chỉ được chứa chữ và số, không có ký tự đặc biệt."
+      );
     }
 
     if (newPassword !== confirmPassword) {
@@ -33,11 +34,14 @@ export default function ChangePassword() {
     }
 
     try {
-      const res = await axios.post(`http://localhost:5000/api/users/change-password`, {
-        user_id: user.id,
-        oldPassword,
-        newPassword,
-      });
+      const res = await axios.post(
+        `http://localhost:5000/api/users/change-password`,
+        {
+          user_id: user.id,
+          oldPassword,
+          newPassword,
+        }
+      );
       setMsg(res.data.message || "Đổi mật khẩu thành công");
       setOldPassword("");
       setNewPassword("");
@@ -60,7 +64,10 @@ export default function ChangePassword() {
             onChange={(e) => setOldPassword(e.target.value)}
             required
           />
-          <span className="toggle-password" onClick={() => setShowOldPw(!showOldPw)}>
+          <span
+            className="toggle-password"
+            onClick={() => setShowOldPw(!showOldPw)}
+          >
             {showOldPw ? <FaEyeSlash /> : <FaEye />}
           </span>
         </div>
@@ -75,7 +82,10 @@ export default function ChangePassword() {
             onChange={(e) => setNewPassword(e.target.value)}
             required
           />
-          <span className="toggle-password" onClick={() => setShowNewPw(!showNewPw)}>
+          <span
+            className="toggle-password"
+            onClick={() => setShowNewPw(!showNewPw)}
+          >
             {showNewPw ? <FaEyeSlash /> : <FaEye />}
           </span>
         </div>
@@ -90,14 +100,19 @@ export default function ChangePassword() {
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-          <span className="toggle-password" onClick={() => setShowConfirmPw(!showConfirmPw)}>
+          <span
+            className="toggle-password"
+            onClick={() => setShowConfirmPw(!showConfirmPw)}
+          >
             {showConfirmPw ? <FaEyeSlash /> : <FaEye />}
           </span>
         </div>
       </div>
 
       <div className="form-row btn-row">
-        <button className="save-btn" type="submit">Đổi mật khẩu</button>
+        <button className="save-btn" type="submit">
+          Đổi mật khẩu
+        </button>
       </div>
 
       {msg && (

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./style.scss";
-import { ReactSession } from "react-client-session";
 import { SESSION_KEYS } from "../../../utils/constant";
 
 const UserOrdersPage = () => {
@@ -9,7 +8,7 @@ const UserOrdersPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const user = ReactSession.get(SESSION_KEYS.USER_INFO);
+  const user = JSON.parse(localStorage.getItem(SESSION_KEYS.USER_INFO));
   console.log("User session:", user);
 
   useEffect(() => {

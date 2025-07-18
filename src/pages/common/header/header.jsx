@@ -13,7 +13,6 @@ import { ROUTERS } from "../../../utils/router";
 import { useGetCategoriesUS } from "../../../api/homePage";
 import { useDispatch, useSelector } from "react-redux";
 import { SESSION_KEYS } from "../../../utils/constant";
-import { ReactSession } from "react-client-session";
 import { setCart } from "../../../redux/commonSlide";
 import logo from "../../../assets/users/images/logo/logo.png";
 export const categories = [];
@@ -73,9 +72,9 @@ const Header = () => {
   }, [categories]);
 
   useEffect(() => {
-    const cart = ReactSession.get(SESSION_KEYS.CART);
+    const cart = localStorage.getItem(SESSION_KEYS.CART);
     if (cart) {
-      dispatch(setCart(cart));
+      dispatch(setCart(JSON.parse(cart)));
     }
   }, [dispatch]);
 

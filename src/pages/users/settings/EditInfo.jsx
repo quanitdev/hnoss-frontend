@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { ReactSession } from "react-client-session";
 import axios from "axios";
 import { SESSION_KEYS } from "../../../utils/constant";
 import "./styles/_EditInfo.scss";

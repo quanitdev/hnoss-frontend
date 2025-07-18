@@ -7,7 +7,6 @@ import { Quantity } from "../../../component";
 import { useNavigate } from "react-router-dom";
 import { ROUTERS } from "../../../utils/router";
 import { SESSION_KEYS } from "../../../utils/constant";
-import { ReactSession } from "react-client-session";
 import useShoppingCart from "../../../hooks/useShoppingCart";
 import axios from "axios";
 import locationData from "../../../data/vietnam_locations.json";
@@ -19,7 +18,9 @@ const ShoppingCartPage = () => {
   const QRBanner = banners.find((b) => b.name === "ma-qr");
   const navigate = useNavigate();
   const { removeCart } = useShoppingCart();
-  const [cart, setCart] = useState(ReactSession.get(SESSION_KEYS.CART));
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem(SESSION_KEYS.CART))
+  );
   const [discountCode, setDiscountCode] = useState("");
   const [discountInfo, setDiscountInfo] = useState(null);
   const [errorMsg, setErrorMsg] = useState("");
@@ -100,11 +101,11 @@ const ShoppingCartPage = () => {
       };
       setDiscountInfo(info);
       setErrorMsg("");
-      ReactSession.set("DISCOUNT_INFO", info);
+      localStorage.setItem("DISCOUNT_INFO", JSON.stringify(info));
     } catch (err) {
       setDiscountInfo(null);
       setErrorMsg(err.response?.data?.message || "Mã giảm giá không hợp lệ.");
-      ReactSession.remove("DISCOUNT_INFO");
+      localStorage.removeItem("DISCOUNT_INFO");
     }
   };
 
@@ -114,7 +115,9 @@ const ShoppingCartPage = () => {
   const totalPayment = totalAfterDiscount + shippingFee;
 
   const handleSubmitOrder = async () => {
-    const currentUser = ReactSession.get(SESSION_KEYS.USER_INFO);
+    const currentUser = JSON.parse(
+      localStorage.getItem(SESSION_KEYS.USER_INFO)
+    );
     console.log("User FE:", currentUser);
     // Kiểm tra user_id hợp lệ
     const user_id = currentUser?.user_id || currentUser?.id;
@@ -161,8 +164,8 @@ const ShoppingCartPage = () => {
     console.log("Payload FE gửi:", payload);
     try {
       await axios.post("http://localhost:5000/api/orders/create", payload);
-      ReactSession.remove(SESSION_KEYS.CART);
-      ReactSession.remove("DISCOUNT_INFO");
+      localStorage.removeItem(SESSION_KEYS.CART);
+      localStorage.removeItem("DISCOUNT_INFO");
       // alert("✅ Đặt hàng thành công!");
       // navigate(ROUTERS.USER.HOME);
       // window.location.reload();
@@ -202,7 +205,7 @@ const ShoppingCartPage = () => {
         0
       );
       setCart(updatedCart);
-      ReactSession.set(SESSION_KEYS.CART, updatedCart); // cập nhật session
+      localStorage.setItem(SESSION_KEYS.CART, JSON.stringify(updatedCart)); // cập nhật session
     }
   };
 
@@ -352,8 +355,8 @@ const ShoppingCartPage = () => {
                 <button
                   className="button-submit"
                   onClick={() => {
-                    const currentUser = ReactSession.get(
-                      SESSION_KEYS.USER_INFO
+                    const currentUser = JSON.parse(
+                      localStorage.getItem(SESSION_KEYS.USER_INFO)
                     );
 
                     if (!currentUser) {

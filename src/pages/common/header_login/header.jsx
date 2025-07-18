@@ -12,12 +12,9 @@ import { ROUTERS } from "../../../utils/router";
 import { useGetCategoriesUS } from "../../../api/homePage";
 import { useDispatch, useSelector } from "react-redux";
 import { SESSION_KEYS } from "../../../utils/constant";
-import { ReactSession } from "react-client-session";
 import { setCart } from "../../../redux/commonSlide";
 import logo from "../../../assets/users/images/logo/logo.png";
-export const categories = [
-
-];
+export const categories = [];
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -48,7 +45,7 @@ const Header = () => {
     },
     {
       name: "Liên hệ",
-       path: ROUTERS.USER.CONTACT,
+      path: ROUTERS.USER.CONTACT,
     },
   ]);
 
@@ -77,7 +74,7 @@ const Header = () => {
   }, [categories]);
 
   useEffect(() => {
-    const cart = ReactSession.get(SESSION_KEYS.CART);
+    const cart = localStorage.getItem(SESSION_KEYS.CART);
     if (cart) {
       dispatch(setCart(cart));
     }
@@ -93,11 +90,11 @@ const Header = () => {
       <div
         className={`humberger_menu_wrapper ${isShowHumberger ? "show" : ""}`}
       >
-       <div className="header_logo">
-  <Link to={ROUTERS.USER.HOME}>
-    <img src={logo} alt="HNOSS Logo" style={{ height: "50px" }} />
-  </Link>
-</div>
+        <div className="header_logo">
+          <Link to={ROUTERS.USER.HOME}>
+            <img src={logo} alt="HNOSS Logo" style={{ height: "50px" }} />
+          </Link>
+        </div>
 
         <div className="humberger_menu_cart">
           <ul>
@@ -164,12 +161,11 @@ const Header = () => {
         <div className="row">
           {/*  */}
           <div className="col-lg-3">
-          <div className="header_logo">
-  <Link to={ROUTERS.USER.HOME}>
-    <img src={logo} alt="HNOSS Logo" style={{ height: "35px" }} />
-  </Link>
-</div>
-
+            <div className="header_logo">
+              <Link to={ROUTERS.USER.HOME}>
+                <img src={logo} alt="HNOSS Logo" style={{ height: "35px" }} />
+              </Link>
+            </div>
           </div>
           {/* / */}
           <div className="col-lg-6 ">

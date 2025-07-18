@@ -16,7 +16,6 @@ import { MdEmail } from "react-icons/md";
 import { useGetCategoriesUS } from "../../../../api/homePage";
 import { useDispatch, useSelector } from "react-redux";
 import { SESSION_KEYS } from "../../../../utils/constant";
-import { ReactSession } from "react-client-session";
 import { setCart } from "../../../../redux/commonSlide";
 import logo from "../../../../assets/users/images/logo/logo.png";
 
@@ -29,12 +28,12 @@ const Header = () => {
   const [isShowCategories, setShowCategories] = useState(isHome);
   const { cart: cartRedux } = useSelector((state) => state.commonSlide);
 
-  const user = ReactSession.get(SESSION_KEYS.USER_INFO); // ✅ Lấy user từ session
+  const user = JSON.parse(localStorage.getItem(SESSION_KEYS.USER_INFO)); // ✅ Lấy user từ session
 
   const handleLogout = () => {
-    ReactSession.remove(SESSION_KEYS.USER_INFO);
-    ReactSession.remove(SESSION_KEYS.TOKEN);
-    ReactSession.remove("DISCOUNT_INFO");
+    localStorage.removeItem(SESSION_KEYS.USER_INFO);
+    localStorage.removeItem(SESSION_KEYS.TOKEN);
+    localStorage.removeItem("DISCOUNT_INFO");
     window.location.href = ROUTERS.ACCOUNT.LOGIN;
   };
 
@@ -55,7 +54,7 @@ const Header = () => {
   const { data: categories } = useGetCategoriesUS();
 
   useEffect(() => {
-    const cart = ReactSession.get(SESSION_KEYS.CART);
+    const cart = JSON.parse(localStorage.getItem(SESSION_KEYS.CART));
     if (cart) {
       dispatch(setCart(cart));
     }

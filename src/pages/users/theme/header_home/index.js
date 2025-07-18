@@ -16,7 +16,6 @@ import { MdEmail } from "react-icons/md";
 import { useGetCategoriesUS, useGetBannersUS } from "../../../../api/homePage";
 import { useDispatch, useSelector } from "react-redux";
 import { SESSION_KEYS } from "../../../../utils/constant";
-import { ReactSession } from "react-client-session";
 import { setCart } from "../../../../redux/commonSlide";
 
 const Header = () => {
@@ -125,12 +124,12 @@ const Header = () => {
     }
   }, [finalSliderImages]);
 
-  const user = ReactSession.get(SESSION_KEYS.USER_INFO);
+  const user = JSON.parse(localStorage.getItem(SESSION_KEYS.USER_INFO));
 
   const handleLogout = () => {
-    ReactSession.remove(SESSION_KEYS.USER_INFO);
-    ReactSession.remove(SESSION_KEYS.TOKEN);
-    ReactSession.remove("DISCOUNT_INFO");
+    localStorage.removeItem(SESSION_KEYS.USER_INFO);
+    localStorage.removeItem(SESSION_KEYS.TOKEN);
+    localStorage.removeItem("DISCOUNT_INFO");
     navigate(ROUTERS.ACCOUNT.LOGIN);
   };
 
@@ -167,7 +166,7 @@ const Header = () => {
   }, [categories]);
 
   useEffect(() => {
-    const cart = ReactSession.get(SESSION_KEYS.CART);
+    const cart = JSON.parse(localStorage.getItem(SESSION_KEYS.CART));
     if (cart) {
       dispatch(setCart(cart));
     }

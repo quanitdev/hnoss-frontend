@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import AdminOrdersPage from "./AdminOrdersPage";
 import AdminUsersPage from "./AdminUsersPage";
 import AdminProductsPage from "./AdminProductsPage";
-import { ReactSession } from "react-client-session";
 import "./style.scss";
 import { SESSION_KEYS } from "../../../utils/constant";
 import { useNavigate } from "react-router-dom";
@@ -16,9 +15,9 @@ export default function AdminDashboardPage() {
   const navigate = useNavigate();
   const [tab, setTab] = useState("overview");
 
-  const user = ReactSession.get(SESSION_KEYS.USER_INFO);
+  const user = localStorage.getItem(SESSION_KEYS.USER_INFO);
   useEffect(() => {
-    if (!user || user.role !== "admin") {
+    if (!user || JSON.parse(user).role !== "admin") {
       alert("❌ Bạn không có quyền truy cập trang này!");
       window.location.href = ROUTERS.ACCOUNT.LOGIN;
     }
@@ -28,7 +27,7 @@ export default function AdminDashboardPage() {
     <div className="admin-dashboard-layout">
       <div className="admin-sidebar">
         <div className="admin-greeting">
-          Xin chào,<br></br> <b>{user?.name || "Admin"}</b>!
+          Xin chào,<br></br> <b>{JSON.parse(user)?.name || "Admin"}</b>!
         </div>
         <button
           className={tab === "overview" ? "active" : ""}
@@ -75,7 +74,7 @@ export default function AdminDashboardPage() {
         <button
           className="logout-btn"
           onClick={() => {
-            ReactSession.remove(SESSION_KEYS.USER_INFO);
+            localStorage.removeItem(SESSION_KEYS.USER_INFO);
             window.location.href = ROUTERS.ACCOUNT.LOGIN;
           }}
         >

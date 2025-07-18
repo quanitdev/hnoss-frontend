@@ -1,17 +1,16 @@
 import { useState } from "react";
-import { ReactSession } from "react-client-session";
 import { SESSION_KEYS } from "../../../utils/constant";
 import "./style.scss";
 import axios from "axios";
 
 const UserSettingsPage = () => {
-  const user = ReactSession.get(SESSION_KEYS.USER_INFO);
+  const user = JSON.parse(localStorage.getItem(SESSION_KEYS.USER_INFO));
 
   // State cho tab
   const [tab, setTab] = useState("info"); // "info", "password", "orders"
 
   // State cho sửa thông tin
-  
+
   const [name, setName] = useState(user?.name || "");
   const [email, setEmail] = useState(user?.email || "");
   const [infoMsg, setInfoMsg] = useState("");
@@ -28,7 +27,8 @@ const UserSettingsPage = () => {
     setInfoMsg("");
     // Gửi API cập nhật thông tin ở đây
     // Ví dụ:
-    axios.put(`/api/users/${user.id}`, { name, email })
+    axios
+      .put(`/api/users/${user.id}`, { name, email })
       .then(() => setInfoMsg("Cập nhật thành công!"))
       .catch(() => setInfoMsg("Lỗi cập nhật!"));
   };
@@ -41,10 +41,15 @@ const UserSettingsPage = () => {
       setPwMsg("Mật khẩu mới không khớp");
       return;
     }
-  //  Gửi API đổi mật khẩu ở đây
-    axios.post("/api/users/change-password", { user_id: user.id, oldPassword, newPassword })
-      .then(res => setPwMsg(res.data.message))
-      .catch(err => setPwMsg("Lỗi đổi mật khẩu!"));
+    //  Gửi API đổi mật khẩu ở đây
+    axios
+      .post("/api/users/change-password", {
+        user_id: user.id,
+        oldPassword,
+        newPassword,
+      })
+      .then((res) => setPwMsg(res.data.message))
+      .catch((err) => setPwMsg("Lỗi đổi mật khẩu!"));
   };
 
   return (
