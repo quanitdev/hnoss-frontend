@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = process.env.REACT_APP_API_URI;
+const baseURL = process.env.REACT_APP_API_URL;
 const timeout = +(process.env.REACT_APP_API_TIME_OUT) || 20000;
 
 
