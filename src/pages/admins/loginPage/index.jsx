@@ -5,6 +5,7 @@ import "./style.scss";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { ROUTERS } from "../../../utils/router";
 import axios from "axios";
+import { SESSION_KEYS } from "../../../utils/constant";
 
 const LoginAdPage = () => {
   const navigate = useNavigate();
@@ -48,8 +49,9 @@ const LoginAdPage = () => {
       );
       const { token, user, role } = res.data;
 
-      // ReactSession.set(SESSION_KEYS.TOKEN, token);
-      // ReactSession.set(SESSION_KEYS.USER_INFO, user);
+      // LƯU SESSION
+      localStorage.setItem(SESSION_KEYS.TOKEN, token);
+      localStorage.setItem(SESSION_KEYS.USER_INFO, JSON.stringify(user));
 
       if (role === "admin") {
         navigate(ROUTERS.ADMIN.ORDERS);
