@@ -21,7 +21,7 @@ const AdminOverviewPage = () => {
 
   const fetchStats = async () => {
     const res = await axios.get(
-      `http://localhost:5000/api/admin/dashboard-stats?range=${range}`
+      `https://hnoss-backend.onrender.com/api/admin/dashboard-stats?range=${range}`
     );
     setStats(res.data);
   };

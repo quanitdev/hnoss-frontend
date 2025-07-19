@@ -35,7 +35,7 @@ export default function ChangePassword() {
 
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/users/change-password`,
+        `https://hnoss-backend.onrender.com/api/users/change-password`,
         {
           user_id: user.id,
           oldPassword,

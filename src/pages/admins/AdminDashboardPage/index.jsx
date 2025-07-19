@@ -16,12 +16,12 @@ export default function AdminDashboardPage() {
   const [tab, setTab] = useState("overview");
 
   const user = localStorage.getItem(SESSION_KEYS.USER_INFO);
-  useEffect(() => {
-    if (!user || JSON.parse(user).role !== "admin") {
-      alert("❌ Bạn không có quyền truy cập trang này!");
-      window.location.href = ROUTERS.ACCOUNT.LOGIN;
-    }
-  }, [user, navigate]);
+  // useEffect(() => {
+  //   if (!user || JSON.parse(user).role !== "admin") {
+  //     alert("❌ Bạn không có quyền truy cập trang này!");
+  //     window.location.href = ROUTERS.ACCOUNT.LOGIN;
+  //   }
+  // }, [user, navigate]);
 
   return (
     <div className="admin-dashboard-layout">

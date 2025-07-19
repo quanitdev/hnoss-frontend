@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const END_POINT = "http://localhost:5000/api/sale";
+const END_POINT = "https://hnoss-backend.onrender.com/api/sale";
 
 export default function AdminVoucherPage() {
   const [vouchers, setVouchers] = useState([]);
@@ -63,8 +63,8 @@ export default function AdminVoucherPage() {
     } catch (err) {
       setMsg(
         err.response?.data?.error ||
-          err.response?.data?.message ||
-          "Lỗi khi thêm/cập nhật voucher."
+        err.response?.data?.message ||
+        "Lỗi khi thêm/cập nhật voucher."
       );
     }
   };

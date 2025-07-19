@@ -20,7 +20,7 @@ export default function AdminContactsPage() {
 
   const fetchContacts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/contact");
+      const res = await axios.get("https://hnoss-backend.onrender.com/api/contact");
       setContacts(res.data);
     } catch {
       setMsg("Không thể tải danh sách liên hệ");
@@ -29,7 +29,7 @@ export default function AdminContactsPage() {
 
   const handleStatusChange = async (id, status) => {
     try {
-      await axios.put(`http://localhost:5000/api/contact/${id}/status`, {
+      await axios.put(`https://hnoss-backend.onrender.com/api/contact/${id}/status`, {
         status,
       });
       setContacts((prev) =>
@@ -45,13 +45,13 @@ export default function AdminContactsPage() {
     e.preventDefault();
     try {
       // Gửi mail qua backend (giả sử đã có API gửi mail)
-      await axios.post("http://localhost:5000/api/contact/reply", {
+      await axios.post("https://hnoss-backend.onrender.com/api/contact/reply", {
         id,
         email,
         content: replyContent,
       });
       // Cập nhật trạng thái liên hệ
-      await axios.put(`http://localhost:5000/api/contact/${id}/status`, {
+      await axios.put(`https://hnoss-backend.onrender.com/api/contact/${id}/status`, {
         status: "daphanhoi",
       });
       setContacts((prev) =>

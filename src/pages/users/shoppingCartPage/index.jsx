@@ -43,14 +43,14 @@ const ShoppingCartPage = () => {
   const provinces = locationData.map((loc) => loc.name);
   const districts = selectedProvince
     ? locationData
-        .find((p) => p.name === selectedProvince)
-        ?.districts.map((d) => d.name) || []
+      .find((p) => p.name === selectedProvince)
+      ?.districts.map((d) => d.name) || []
     : [];
 
   const wards = selectedDistrict
     ? locationData
-        .find((p) => p.name === selectedProvince)
-        ?.districts.find((d) => d.name === selectedDistrict)?.wards || []
+      .find((p) => p.name === selectedProvince)
+      ?.districts.find((d) => d.name === selectedDistrict)?.wards || []
     : [];
 
   useEffect(() => {
@@ -85,7 +85,7 @@ const ShoppingCartPage = () => {
   const handleApplyDiscount = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/sale/check-code",
+        "https://hnoss-backend.onrender.com/api/sale/check-code",
         {
           code: discountCode,
           totalPrice: cart?.totalPrice,
@@ -163,7 +163,7 @@ const ShoppingCartPage = () => {
     };
     console.log("Payload FE gửi:", payload);
     try {
-      await axios.post("http://localhost:5000/api/orders/create", payload);
+      await axios.post("https://hnoss-backend.onrender.com/api/orders/create", payload);
       localStorage.removeItem(SESSION_KEYS.CART);
       localStorage.removeItem("DISCOUNT_INFO");
       // alert("✅ Đặt hàng thành công!");
@@ -285,7 +285,7 @@ const ShoppingCartPage = () => {
                     <td>
                       {formatter(
                         cart.products[key].product.price *
-                          cart.products[key].quantity
+                        cart.products[key].quantity
                       )}
                     </td>
                     <td
@@ -453,9 +453,8 @@ const ShoppingCartPage = () => {
                   {/* Thêm lựa chọn phương thức thanh toán dạng block đẹp */}
                   <div className="payment-methods-group">
                     <div
-                      className={`payment-method-option${
-                        paymentMethod === "bank" ? " selected" : ""
-                      }`}
+                      className={`payment-method-option${paymentMethod === "bank" ? " selected" : ""
+                        }`}
                       onClick={() => setPaymentMethod("bank")}
                     >
                       <input
@@ -472,9 +471,8 @@ const ShoppingCartPage = () => {
                       <span>Chuyển khoản qua ngân hàng</span>
                     </div>
                     <div
-                      className={`payment-method-option${
-                        paymentMethod === "cod" ? " selected" : ""
-                      }`}
+                      className={`payment-method-option${paymentMethod === "cod" ? " selected" : ""
+                        }`}
                       onClick={() => setPaymentMethod("cod")}
                     >
                       <input

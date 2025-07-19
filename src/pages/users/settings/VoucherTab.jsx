@@ -10,7 +10,7 @@ export default function VouchersTab() {
   useEffect(() => {
     const fetchVouchers = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/vouchers"); // Sửa theo BE nếu cần
+        const res = await axios.get("https://hnoss-backend.onrender.com/api/vouchers"); // Sửa theo BE nếu cần
         const now = new Date();
         const validVouchers = res.data.filter(v =>
           new Date(v.expires_at) > now

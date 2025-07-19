@@ -12,7 +12,7 @@ export default function EditInfo() {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/users/${user.id}`,
+        `https://hnoss-backend.onrender.com/api/users/${user.id}`,
         { name, email }
       );
       setMsg(res.data.message);

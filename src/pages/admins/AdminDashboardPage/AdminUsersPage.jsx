@@ -20,7 +20,7 @@ export default function AdminUsersPage() {
   }, [tab]);
 
   const fetchUsers = () => {
-    axios.get("http://localhost:5000/api/users")
+    axios.get("https://hnoss-backend.onrender.com/api/users")
       .then(res => setUsers(res.data))
       .catch(() => setMsg("Không thể tải danh sách người dùng"));
   };
@@ -29,7 +29,7 @@ export default function AdminUsersPage() {
   const handleAddUser = (e) => {
     e.preventDefault();
     setMsg("");
-    axios.post("http://localhost:5000/api/users", newUser)
+    axios.post("https://hnoss-backend.onrender.com/api/users", newUser)
       .then(() => {
         setMsg("Thêm người dùng thành công!");
         setNewUser({ name: "", email: "", password: "", role: "user" });
@@ -41,7 +41,7 @@ export default function AdminUsersPage() {
   // Xóa user
   const handleDelete = (id) => {
     if (!window.confirm("Bạn chắc chắn muốn xóa người dùng này?")) return;
-    axios.delete(`http://localhost:5000/api/users/${id}`)
+    axios.delete(`https://hnoss-backend.onrender.com/api/users/${id}`)
       .then(() => {
         setMsg("Đã xóa người dùng!");
         fetchUsers();
@@ -51,7 +51,7 @@ export default function AdminUsersPage() {
 
   // Cập nhật quyền
   const handleRoleChange = (id, role) => {
-    axios.put(`http://localhost:5000/api/users/${id}/role`, { role })
+    axios.put(`https://hnoss-backend.onrender.com/api/users/${id}/role`, { role })
       .then(() => {
         setMsg("Cập nhật quyền thành công!");
         fetchUsers();

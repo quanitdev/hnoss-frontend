@@ -21,7 +21,7 @@ const ContactPage = () => {
     e.preventDefault();
     setMsg("");
     try {
-      await axios.post("http://localhost:5000/api/contact", form);
+      await axios.post("https://hnoss-backend.onrender.com/api/contact", form);
       setMsg("Gửi liên hệ thành công!");
       setForm({ name: "", email: "", phone: "", message: "" });
     } catch (err) {

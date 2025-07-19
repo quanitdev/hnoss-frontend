@@ -18,7 +18,7 @@ const AdminBannerPage = () => {
   const fetchBanners = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:5000/api/banners");
+      const res = await axios.get("https://hnoss-backend.onrender.com/api/banners");
       setBanners(res.data);
       setError("");
     } catch (err) {
@@ -43,7 +43,7 @@ const AdminBannerPage = () => {
       formData.append("description", form.description);
       formData.append("image", selectedFile);
 
-      await axios.post("http://localhost:5000/api/banners", formData, {
+      await axios.post("https://hnoss-backend.onrender.com/api/banners", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -69,7 +69,7 @@ const AdminBannerPage = () => {
     if (window.confirm("Bạn có chắc chắn muốn xoá banner này?")) {
       try {
         setLoading(true);
-        await axios.delete(`http://localhost:5000/api/banners/${id}`);
+        await axios.delete(`https://hnoss-backend.onrender.com/api/banners/${id}`);
         fetchBanners();
         setError("");
       } catch (err) {
@@ -105,7 +105,7 @@ const AdminBannerPage = () => {
       if (selectedFile) {
         formData.append("image", selectedFile);
       }
-      await axios.put(`http://localhost:5000/api/banners/${editId}`, formData, {
+      await axios.put(`https://hnoss-backend.onrender.com/api/banners/${editId}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setForm({ name: "", description: "" });
@@ -238,8 +238,8 @@ const AdminBannerPage = () => {
                 ? "Đang cập nhật..."
                 : "Đang thêm..."
               : editId
-              ? "Cập nhật Banner"
-              : "Thêm Banner"}
+                ? "Cập nhật Banner"
+                : "Thêm Banner"}
           </button>
           {editId && (
             <button

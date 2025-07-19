@@ -85,7 +85,7 @@ const Header = () => {
         if (image && !image.startsWith("http") && !image.startsWith("data:")) {
           // Nếu là URL tương đối, thêm base URL của API
           const baseURL =
-            process.env.REACT_APP_API_URI || "http://localhost:5000";
+            process.env.REACT_APP_API_URI || "https://hnoss-backend.onrender.com";
           imageUrl = `${baseURL}/${image}`;
         } else if (image && image.includes("cloudinary")) {
           // Nếu là Cloudinary URL, đảm bảo format đúng
@@ -110,7 +110,7 @@ const Header = () => {
             !imageUrl.startsWith("data:")
           ) {
             const baseURL =
-              process.env.REACT_APP_API_URI || "http://localhost:5000";
+              process.env.REACT_APP_API_URI || "https://hnoss-backend.onrender.com";
             imageUrl = `${baseURL}/${imageUrl}`;
           } else if (imageUrl && imageUrl.includes("cloudinary")) {
             // Nếu là Cloudinary URL, đảm bảo format đúng
@@ -280,9 +280,8 @@ const Header = () => {
                 </Link>
                 {menu.child && (
                   <ul
-                    className={`header_menu_dropdown ${
-                      menu.isShowSubmenu ? "show_submenu" : ""
-                    }`}
+                    className={`header_menu_dropdown ${menu.isShowSubmenu ? "show_submenu" : ""
+                      }`}
                   >
                     {menu.child.map((childItem, childKey) => (
                       <li key={`${menuKey}-${childKey}`}>

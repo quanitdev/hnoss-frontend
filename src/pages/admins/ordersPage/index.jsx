@@ -128,7 +128,7 @@
 //               </tr>
 //               ))}
 //           </tbody>
-    
+
 //         </table>
 //       </div>
 
@@ -147,7 +147,7 @@
 //     </div>
 //   </div>
 // </div>
-      
+
 //     </div>
 //   </div>
 //   );
@@ -164,13 +164,13 @@ const AdminOrdersPage = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/order")
+    axios.get("https://hnoss-backend.onrender.com/api/order")
       .then((res) => setOrders(res.data))
       .catch((err) => console.error("Lỗi lấy đơn hàng:", err));
   }, []);
 
   const handleStatusChange = (id, status) => {
-    axios.put(`http://localhost:5000/api/order/update-status/${id}`, { status })
+    axios.put(`https://hnoss-backend.onrender.com/api/order/update-status/${id}`, { status })
       .then(() => {
         setOrders(prev =>
           prev.map(order => order.id === id ? { ...order, status } : order)

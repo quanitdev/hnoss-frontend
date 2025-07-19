@@ -48,7 +48,7 @@ const RegisterPage = () => {
 
     try {
       setIsLoading(true);
-      await axios.post("http://localhost:5000/api/auth/register", {
+      await axios.post("https://hnoss-backend.onrender.com/api/auth/register", {
         name: form.name,
         email: form.email,
         password: form.password,

@@ -3,7 +3,7 @@ import "./productpage.scss";
 import axios from "axios";
 import { useGetCategoriesUS } from "../../../api/homePage/queries";
 
-const END_POINT = "http://localhost:5000/api/products";
+const END_POINT = "https://hnoss-backend.onrender.com/api/products";
 
 export default function AdminProductsPage() {
   const [products, setProducts] = useState([]);
@@ -57,7 +57,7 @@ export default function AdminProductsPage() {
       setError("");
       try {
         const res = await axios.post(
-          "http://localhost:5000/api/products/upload-image",
+          "https://hnoss-backend.onrender.com/api/products/upload-image",
           formData,
           { headers: { "Content-Type": "multipart/form-data" } }
         );
@@ -99,11 +99,11 @@ export default function AdminProductsPage() {
     } catch (err) {
       setError(
         err.response?.data?.detail ||
-          err.response?.data?.error ||
-          err.response?.data?.message ||
-          (editingId
-            ? "❌ Không thể cập nhật sản phẩm."
-            : "❌ Không thể thêm sản phẩm.")
+        err.response?.data?.error ||
+        err.response?.data?.message ||
+        (editingId
+          ? "❌ Không thể cập nhật sản phẩm."
+          : "❌ Không thể thêm sản phẩm.")
       );
     }
     setLoading(false);
@@ -123,8 +123,8 @@ export default function AdminProductsPage() {
     } catch (err) {
       setError(
         err.response?.data?.error ||
-          err.response?.data?.message ||
-          "❌ Xoá thất bại."
+        err.response?.data?.message ||
+        "❌ Xoá thất bại."
       );
     }
   };

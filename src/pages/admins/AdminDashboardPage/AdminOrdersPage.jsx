@@ -31,12 +31,12 @@ const AdminOrdersPage = () => {
   // Lấy danh sách đơn hàng và user
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/orders")
+      .get("https://hnoss-backend.onrender.com/api/orders")
       .then((res) => setOrders(res.data))
       .catch(() => setMsg("Lỗi lấy đơn hàng"));
 
     axios
-      .get("http://localhost:5000/api/users")
+      .get("https://hnoss-backend.onrender.com/api/users")
       .then((res) => setUsers(res.data))
       .catch(() => setMsg("Lỗi lấy danh sách user"));
   }, []);
@@ -49,7 +49,7 @@ const AdminOrdersPage = () => {
 
   const handleStatusChange = (id, status) => {
     axios
-      .put(`http://localhost:5000/api/orders/update-status/${id}`, { status })
+      .put(`https://hnoss-backend.onrender.com/api/orders/update-status/${id}`, { status })
       .then(() => {
         setOrders((prev) =>
           prev.map((order) => (order.id === id ? { ...order, status } : order))
@@ -65,8 +65,8 @@ const AdminOrdersPage = () => {
     setShowInvoice(true);
     try {
       const [orderRes, usersRes] = await Promise.all([
-        axios.get(`http://localhost:5000/api/orders/${orderId}`),
-        axios.get("http://localhost:5000/api/users"),
+        axios.get(`https://hnoss-backend.onrender.com/api/orders/${orderId}`),
+        axios.get("https://hnoss-backend.onrender.com/api/users"),
       ]);
       console.log("orderRes.data:", orderRes.data);
       setInvoiceOrder({
