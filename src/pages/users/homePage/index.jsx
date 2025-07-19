@@ -104,7 +104,7 @@ const HomePage = () => {
                   className="col-lg-3 col-md-4 col-sm-6 col-xs-12"
                   key={product.id}
                 >
-                  <ProductCard product={product} img={product.img} />
+                  <ProductCard product={product} img={product.value} />
                 </div>
               ))}
           </div>
